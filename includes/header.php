@@ -1,0 +1,1 @@
+<header class="topbar"><div><h1><?= htmlspecialchars($pageTitle ?? "Dashboard") ?></h1><p>Selamat datang, <?= htmlspecialchars($_SESSION['nama_admin'] ?? 'Admin') ?>.</p></div><span class="admin-badge">Admin</span></header>

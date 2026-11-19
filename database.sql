@@ -1,0 +1,54 @@
+
+CREATE DATABASE IF NOT EXISTS wisata_padang_gantiang CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE wisata_padang_gantiang;
+
+CREATE TABLE IF NOT EXISTS admin (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ username VARCHAR(50) NOT NULL UNIQUE,
+ password VARCHAR(255) NOT NULL,
+ nama_admin VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS profil_wisata (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ nama_wisata VARCHAR(150) NOT NULL,
+ deskripsi TEXT,
+ alamat TEXT,
+ foto VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS sejarah (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ judul VARCHAR(150) NOT NULL,
+ isi_sejarah TEXT
+);
+
+CREATE TABLE IF NOT EXISTS fasilitas (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ nama_fasilitas VARCHAR(100) NOT NULL,
+ deskripsi TEXT,
+ foto VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS galeri (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ judul VARCHAR(150) NOT NULL,
+ jenis ENUM('foto','video') NOT NULL DEFAULT 'foto',
+ file_media VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS operasional (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ harga_tiket_dewasa DECIMAL(12,2) DEFAULT 0,
+ harga_tiket_anak DECIMAL(12,2) DEFAULT 0,
+ jam_buka TIME,
+ jam_tutup TIME
+);
+
+CREATE TABLE IF NOT EXISTS kontak (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ alamat TEXT,
+ telepon VARCHAR(30),
+ email VARCHAR(100),
+ link_maps TEXT
+);
